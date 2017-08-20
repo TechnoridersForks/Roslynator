@@ -10,7 +10,7 @@ namespace Roslynator.CSharp
 {
     internal static class GenericDeclarationHelper
     {
-        public static SyntaxNode GetTypeParameterList(SyntaxNode node)
+        public static TypeParameterListSyntax GetTypeParameterList(SyntaxNode node)
         {
             TypeParameterListSyntax typeParameterList;
 
