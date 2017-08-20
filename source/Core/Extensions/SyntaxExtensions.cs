@@ -134,19 +134,6 @@ namespace Roslynator
             return list.IndexOf(node) != -1;
         }
 
-        internal static SyntaxList<TNode> Swap<TNode>(
-            this SyntaxList<TNode> list,
-            int index1,
-            int index2) where TNode : SyntaxNode
-        {
-            TNode first = list[index1];
-            TNode second = list[index2];
-
-            return list
-                .ReplaceAt(index1, second.WithTriviaFrom(first))
-                .ReplaceAt(index2, first.WithTriviaFrom(second));
-        }
-
         public static bool SpanContainsDirectives<TNode>(this SyntaxList<TNode> list) where TNode : SyntaxNode
         {
             if (!list.Any())
