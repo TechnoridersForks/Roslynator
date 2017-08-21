@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CodeActions;
 using Microsoft.CodeAnalysis.CodeFixes;
+using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Roslynator.CSharp.Refactorings;
+using Roslynator.CSharp.Refactorings.UseMethodChaining;
 
 namespace Roslynator.CSharp.CodeFixes
 {
@@ -114,12 +116,27 @@ namespace Roslynator.CSharp.CodeFixes
                         }
                     case DiagnosticIdentifiers.UseMethodChaining:
                         {
-                            CodeAction codeAction = CodeAction.Create(
-                                "Use method chaining",
-                                cancellationToken => UseMethodChainingRefactoring.RefactorAsync(context.Document, (ExpressionStatementSyntax)statement, cancellationToken),
-                                GetEquivalenceKey(diagnostic));
+                            var expressionStatement = (ExpressionStatementSyntax)statement;
 
-                            context.RegisterCodeFix(codeAction, diagnostic);
+                            if (expressionStatement.Expression.IsKind(SyntaxKind.InvocationExpression))
+                            {
+                                CodeAction codeAction = CodeAction.Create(
+                                    "Use method chaining",
+                                    cancellationToken => UseMethodChainingRefactoring.InstanceMethod.RefactorAsync(context.Document, expressionStatement, cancellationToken),
+                                    GetEquivalenceKey(diagnostic));
+
+                                context.RegisterCodeFix(codeAction, diagnostic);
+                            }
+                            else
+                            {
+                                CodeAction codeAction = CodeAction.Create(
+                                    "Use method chaining",
+                                    cancellationToken => UseMethodChainingRefactoring.ExtensionMethod.RefactorAsync(context.Document, expressionStatement, cancellationToken),
+                                    GetEquivalenceKey(diagnostic));
+
+                                context.RegisterCodeFix(codeAction, diagnostic);
+                            }
+
                             break;
                         }
                 }

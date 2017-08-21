@@ -106,6 +106,9 @@
     <Compile Include="CSharp\Refactorings\UseExpressionBodiedMemberRefactoring.cs" />
     <Compile Include="CSharp\Refactorings\InlineAliasExpressionRefactoring.cs" />
     <Compile Include="CSharp\Refactorings\ChangeTypeRefactoring.cs" />
+    <Compile Include="CSharp\Refactorings\UseMethodChaining\UseExtensionMethodChainingRefactoring.cs" />
+    <Compile Include="CSharp\Refactorings\UseMethodChaining\UseInstanceMethodChainingRefactoring.cs" />
+    <Compile Include="CSharp\Refactorings\UseMethodChaining\UseMethodChainingRefactoring.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
