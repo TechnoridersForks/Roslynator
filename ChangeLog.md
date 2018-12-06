@@ -1,3 +1,327 @@
+### 2.0.1 (2018-11-26)
+
+#### Analyzers
+
+* Add analyzer [UnnecessaryUsageOfEnumerator](http://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1230.md) (RCS1230)
+* Add analyzer [MakeParameterRefReadOnly](http://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1231.md) (RCS1231)
+
+### 2.0.0 (2018-10-14)
+
+#### New Features
+
+* Add nuget package [Roslynator.CommandLine](https://nuget.org/packages/Roslynator.CommandLine)
+  * [Fix all diagnostics in a solution](http://github.com/JosefPihrt/Roslynator/blob/master/docs/HowToFixAllDiagnostics.md)
+  * [Generate API documentation](http://github.com/JosefPihrt/Roslynator/blob/master/docs/HowToGenerateDocumentation.md)
+
+#### Analyzers
+
+* Change default severity of [RCS1141](http://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1141.md), [RCS1142](http://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1142.md) and [RCS1165](http://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1165.md) to 'Hidden'
+* Disable [RCS1174](http://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1174.md) by default
+* Improve analyzer [RCS1128](http://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1128.md) - `x.GetValueOrDefault(y)` can be replaced with `x ?? y`
+* Change code fix for [RCS1194](http://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1194.md) - do not generate "serialization" constructor
+
+#### Refactorings
+
+* Add refactoring [RemoveAsyncAwait](http://github.com/JosefPihrt/Roslynator/blob/master/docs/refactorings/RR0209.md)  (RR0209)
+
+#### Code Fixes
+
+* Add code fix for CS0119.
+
+### 1.9.2 (2018-08-10)
+
+#### Analyzers
+
+* Add analyzer [UnusedElementInDocumentationComment](http://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1228.md) (RCS1228)
+* Add analyzer [UseAsyncAwait](http://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1229.md) (RCS1229)
+* Add code fix for analyzer [UnusedParameter](http://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1163.md) (RCS1163)
+
+#### Refactorings
+
+* Add refactoring [AddTagToDocumentationComment](http://github.com/JosefPihrt/Roslynator/blob/master/docs/refactorings/RR0208.md)  (RR0208)
+
+#### Code Fixes
+
+* Add code fixes for CS8050 and CS8139.
+
+### 1.9.1 (2018-07-06)
+
+#### Analyzers
+
+* Add analyzer [ValidateArgumentsCorrectly](http://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1227.md) (RCS1227)
+
+#### Refactorings
+
+* Add refactoring [ReplaceForEachWithEnumerator](http://github.com/JosefPihrt/Roslynator/blob/master/docs/refactorings/RR0206.md)  (RR0206)
+* Add refactoring [SortCaseLabels](http://github.com/JosefPihrt/Roslynator/blob/master/docs/refactorings/RR0207.md)  (RR0207)
+
+* Enable refactorings UseExpressionBodiedMember and ExpandExpressionBody for multiple members (RR0037, RR0169).
+* Extend refactoring ReduceIfNesting and rename it to InvertIf (RR0189).
+
+### 1.9.0 (2018-06-13)
+
+#### Analyzers
+
+* Incorporate RCS1082, RCS1083, RCS1109, RCS1119, RCS1120 and RCS1121 into [RCS1077](http://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1077.md)
+
+#### Refactorings
+
+* Disable RR0010 and RR0012 by default
+
+### 1.8.3 (2018-05-17)
+
+#### Analyzers
+
+* Add analyzer [MarkTypeWithDebuggerDisplayAttribute](http://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1223.md) (RCC1223)
+* Add analyzer [MakeMethodExtensionMethod](http://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1224.md) (RCC1224)
+* Add analyzer [MakeSealedClass](http://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1225.md) (RCC1225)
+* Add analyzer [AddParagraphToDocumentationComment](http://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1226.md) (RCC1226)
+
+* Improve analyzer [UseConditionalAccess](http://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1146.md) (RCS1146)
+  * `x == null || x.y` can be simplified to `x?.y != false`
+  * `x == null || !x.y` can be simplified to `x?.y != true` 
+
+#### Refactorings
+
+* Improve refactoring [FormatExpressionChain](http://github.com/JosefPihrt/Roslynator/blob/master/docs/refactorings/RR0051.md) (RR0051)
+  * A chain that contains conditional access (`x?.y`) will be properly formatted.
+
+### 1.8.2 (2018-05-02)
+
+#### Analyzers
+
+* Add analyzer [UsePatternMatchingInsteadOfIsAndCast](http://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1220.md) (RCS1220)
+* Add analyzer [UsePatternMatchingInsteadOfAsAndNullCheck](http://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1221.md) (RCS1221)
+* Add analyzer [MergePreprocessorDirectives](http://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1222.md) (RCS1222)
+
+#### Code Fixes
+
+* Add code fixes for CS0136, CS0210, CS1003, CS1624, and CS1983.
+
+### 1.8.1 (2018-04-17)
+
+#### Analyzers
+
+* Add analyzer [SimplifyCodeBranching](http://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1218.md)  (RCS1218)
+* Add analyzer [CallSkipAndAnyInsteadOfCount](http://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1219.md) (RCS1219) (split from RCS1083)
+
+#### Refactorings
+
+* Add refactoring [MoveUnsafeContextToContainingDeclaration](http://github.com/JosefPihrt/Roslynator/blob/master/docs/refactorings/RR0202.md)  (RR0202)
+* Add refactoring [ExtractEventHandlerMethod](http://github.com/JosefPihrt/Roslynator/blob/master/docs/refactorings/RR0203.md)  (RR0203)
+* Add refactoring [GeneratePropertyForDebuggerDisplayAttribute](http://github.com/JosefPihrt/Roslynator/blob/master/docs/refactorings/RR0204.md) (RR0204)
+* Add refactoring [AddEmptyLineBetweenDeclarations](http://github.com/JosefPihrt/Roslynator/blob/master/docs/refactorings/RR0205.md)  (RR0205)
+
+#### Code Fixes
+
+* Add code fixes for CS0152, CS0238, CS0524, CS0525, CS0549, CS0567, CS0568, CS0574, CS0575, CS0714, CS1737, CS1743, CS8340.
+
+### 1.8.0 (2018-03-20)
+
+#### Analyzers
+
+##### Changes of "IsEnabledByDefault"
+
+* [RCS1008](http://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1008.md): disabled by default
+* [RCS1009](http://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1009.md): disabled by default
+* [RCS1010](http://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1010.md): disabled by default
+* [RCS1035](http://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1035.md): disabled by default
+* [RCS1040](http://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1040.md): enabled by default
+* [RCS1073](http://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1073.md): enabled by default
+
+##### Changes of "DefaultSeverity"
+
+* [RCS1017](http://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1017.md): from Warning to Info
+* [RCS1026](http://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1026.md): from Warning to Info
+* [RCS1027](http://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1027.md): from Warning to Info
+* [RCS1028](http://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1028.md): from Warning to Info
+* [RCS1030](http://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1030.md): from Warning to Info
+* [RCS1044](http://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1044.md): from Info to Warning
+* [RCS1045](http://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1045.md): from Warning to Info
+* [RCS1055](http://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1055.md): from Info to Hidden
+* [RCS1056](http://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1056.md): from Warning to Info
+* [RCS1073](http://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1073.md): from Hidden to Info
+* [RCS1076](http://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1076.md): from Info to Hidden
+* [RCS1081](http://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1081.md): from Warning to Info
+* [RCS1086](http://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1086.md): from Warning to Info
+* [RCS1087](http://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1087.md): from Warning to Info
+* [RCS1088](http://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1088.md): from Warning to Info
+* [RCS1094](http://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1094.md): from Warning to Info
+* [RCS1110](http://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1110.md): from Warning to Info
+* [RCS1182](http://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1182.md): from Info to Hidden
+
+### 1.7.2 (2018-03-06)
+
+#### Analyzers
+
+* Add analyzer [ReplaceInterpolatedStringWithStringConcatenation](http://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1217.md) (RCS1217).
+
+#### Refactorings
+
+* Add refactoring [ReplaceInterpolatedStringWithStringFormat](http://github.com/JosefPihrt/Roslynator/blob/master/docs/refactorings/RR0201.md) (RR0201).
+
+### 1.7.1 (2018-02-14)
+
+#### Analyzers
+
+* Add analyzer [UnneccesaryUnsafeContext](http://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1216.md) (RCS1216).
+* Improve analyzer ReplaceCommentWithDocumentationComment (RCS1181) - support trailing comment.
+
+### 1.7.0 (2018-02-02)
+
+#### Analyzers
+
+* Rename analyzer AddBraces to AddBracesWhenExpressionSpansOverMultipleLines (RCS1001).
+* Rename analyzer AddBracesToIfElse to AddBracesToIfElseWhenExpressionSpansOverMultipleLines (RCS1003).
+* Rename analyzer AvoidEmbeddedStatement to AddBraces (RCS1007).
+* Rename analyzer AvoidEmbeddedStatementInIfElse to AddBracesToIfElse (RCS1126).
+
+#### Refactorings
+
+* Add refactoring [UncommentMultilineComment](http://github.com/JosefPihrt/Roslynator/blob/master/docs/refactorings/RR0200.md) (RR0200).
+
+### 1.6.30 (2018-01-19)
+
+* Add support for 'private protected' accessibility.
+
+#### Analyzers
+
+* Do not report unused parameter (RCS1163) when parameter name consists of underscore(s).
+
+#### Refactorings
+
+* Add refactoring [InlineProperty](http://github.com/JosefPihrt/Roslynator/blob/master/docs/refactorings/RR0198.md) (RR0198).
+* Add refactoring [RemoveEnumMemberValue](http://github.com/JosefPihrt/Roslynator/blob/master/docs/refactorings/RR0199.md) (RR0199).
+* Remove, duplicate or comment out local function.
+* Change accessibility for selected members.
+
+#### Code Fixes
+
+* Add code fixes for CS0029, CS0133, CS0201, CS0501, CS0527.
+
+### 1.6.20 (2018-01-03)
+
+#### Analyzers
+
+* Add analyzer [AvoidInterpolatedStringWithNoInterpolatedText](http://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1214.md) (RCS1214).
+* Add analyzer [ExpressionIsAlwaysEqualToTrueOrFalse](http://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1215.md) (RCS1215).
+
+#### Refactorings
+
+* Add refactoring [InitializeFieldFromConstructor](http://github.com/JosefPihrt/Roslynator/blob/master/docs/refactorings/RR0197.md) (RR0197).
+
+#### Code Fixes
+
+* Add code fixes for CS1503, CS1751.
+
+### 1.6.10 (2017-12-21)
+
+#### Analyzers
+
+* Add analyzer [UnusedMemberDeclaration](http://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1213.md) (RCS1213).
+* Improve analyzer [UnusedParameter](http://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1163.md)
+  * Report unused parameters of lambda expressions and anonymous methods.
+
+#### Code Fixes
+
+* Add code fixes for CS0030, CS1597.
+
+### 1.6.0 (2017-12-13)
+
+#### Refactorings
+
+* Add refactoring [AddMemberToInterface](http://github.com/JosefPihrt/Roslynator/blob/master/docs/refactorings/RR0195.md) (RR0195).
+* Add refactoring [MergeIfWithParentIf](http://github.com/JosefPihrt/Roslynator/blob/master/docs/refactorings/RR0196.md) (RR0196).
+
+#### Code Fixes
+
+Add code fix for CS1031 and CS8112. 
+
+### 1.5.14 (2017-11-29)
+
+#### Refactorings
+
+* Add refactoring ReplaceInterpolatedStringWithConcatenation (RR0193).
+* Add refactoring SplitDeclarationAndInitialization (RR0194).
+
+#### Code Fixes
+
+* Add code fixes for CS0246.
+
+### 1.5.13 (2017-11-09)
+
+#### Analyzers
+
+* Add analyzer RemoveRedundantAssignment (RCS1212).
+
+#### Refactorings
+
+* Add refactoring ReplaceCommentWithDocumentationComment (RR0192).
+
+#### Code Fixes
+
+* Add code fixes for CS0216, CS0659, CS0660, CS0661 and CS1526.
+
+### 1.5.12 (2017-10-19)
+
+#### Analyzers
+
+* Add analyzer ReturnTaskInsteadOfNull (RCS1210).
+* Add analyzer RemoveUnnecessaryElseClause (RCS1211).
+* Remove analyzer SimplifyLambdaExpressionParameterList (RCS1022).
+
+#### Refactorings
+
+* Replace refactoring ChangeMemberTypeAccordingToReturnExpression (RR0019) with code fix.
+* Replace refactoring ChangeMemberTypeAccordingToYieldReturnExpression (RR0020) with code fix.
+* Replace refactoring AddDefaultValueToReturnStatement (RR0008) with code fix.
+
+#### Code Fixes
+
+  * Add code fix for CS0126, CS0139, CS0713 and CS1750.
+
+### 1.5.10 (2017-10-04)
+
+#### Code Fixes
+
+  * Add code fixes for CS0103, CS0192, CS0403 and CS0541.
+
+### 1.5.0 (2017-09-22)
+
+ * Bug fixes.
+
+### 1.4.58 (2017-09-16)
+
+#### Analyzers
+
+  * Remove analyzer UseCSharp6DictionaryInitializer (RCS1095)
+
+#### Refactorings
+
+##### New Refactorings
+
+  * UseCSharp6DictionaryInitializer (RR0191)
+
+### 1.4.57 (2017-09-06)
+
+#### Refactorings
+
+##### New Refactorings
+
+  * ReplaceIfElseWithIfReturn (RR0190)
+
+#### Code Fixes
+
+  * Add code fix for CS0021.
+
+### 1.4.56 (2017-08-28)
+
+#### Analyzers
+
+##### New Analyzers
+
+  * ReorderTypeParameterConstraints (RCS1209)
+
 ### 1.4.55 (2017-08-16)
 
 #### Code Fixes

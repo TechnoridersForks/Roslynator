@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.3</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion>
+    <CodeAnalysisRuleSet>..\..\global.ruleset</CodeAnalysisRuleSet>
+    <AssemblyName>Roslynator.Tests.TestLibrary</AssemblyName>
+    <RootNamespace>Roslynator.Tests.TestLibrary</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\CSharp.Workspaces\CSharp.Workspaces.csproj" />
+  </ItemGroup>
+
+</Project>
